@@ -1,4 +1,4 @@
-<?php include_once "../includes/_header.php"; ?>
+<?php include_once "includes/_header.php"; ?>
 
 <body class="p-5 mx-auto col-md-6 login" style="max-width: 800px;">
 <form method="post" action="login.php">
@@ -19,4 +19,4 @@
     </div>
 </form>
 
-<?php include_once "../includes/_footer.php"; ?>
+<?php include_once "includes/_footer.php"; ?>
