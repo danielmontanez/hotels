@@ -1,7 +1,7 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'].'/core/database/connection.php';
-require $_SERVER['DOCUMENT_ROOT'].'/core/models/user.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/database/connection.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/models/user.php';
 
 class SignUpProcess {
 
