@@ -1,5 +1,5 @@
 <?php
-
+//  Class used every time database needs to be used
 class Connection {
 
     public static function connect() {

@@ -18,6 +18,7 @@ class SignUpProcess {
 		$this->confirm_password = $confirm_password;		
 	}
 	
+    //  Form validation
 	public function validateForm() {
 		if (!empty($this->name) && 
             !empty($this->email) && 
@@ -30,6 +31,7 @@ class SignUpProcess {
 		return false;
 	}
 
+    //  Function to create a new user in the USER table
 	public function signUp() {
 		try {
 			$pdo = Connection::connect();
