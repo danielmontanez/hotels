@@ -30,6 +30,26 @@ class SignUpProcess {
 
 		return false;
 	}
+    // Function to see if email is already in database
+    public function userExists(){
+        
+        
+            $pdo = Connection::connect();
+            $sql = "SELECT user_email FROM user;";
+            $users_result = $pdo->prepare($sql);
+            $users_result->execute();
+            
+            while($users = $users_result->fetch(PDO::FETCH_ASSOC)){
+                
+                if($users['user_email']==$this->email){
+                    return false;
+                    exit;
+                }
+            }
+            return true;
+        
+    }
+    
 
     //  Function to create a new user in the USER table
 	public function signUp() {
