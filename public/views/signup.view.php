@@ -3,7 +3,7 @@
 <body class="p-5 mx-auto col-md-6 signup" style="max-width: 800px;">
 
 <div class="alert alert-danger <?php echo isset($_GET['error']) ? 'd-block' : 'd-none' ?>" role="alert">
-  There's an error in your form. Please try again.
+  There's an error. Please try again.
 </div>
 <form method="post" action="../actions/signup.php">
     <div class="form-group">

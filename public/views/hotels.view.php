@@ -10,17 +10,14 @@ $hotels_results=$pdo->prepare($sql);
 $hotels_results->execute();
 
 
-if($hotels_results->columnCount() < 1)
+if($hotels_results->rowCount() < 1)
     echo"<h1>No hotels available</h1>";
 
 ?>
 <div class="container">
-  <h1>Hotels</h1>
+  <h1>Hotels available</h1>
     <div class="row">
-        
-        
-        
-        
+             
 <?php
 while ($hotels=$hotels_results->fetch(PDO::FETCH_ASSOC)){
     
@@ -50,8 +47,4 @@ echo"
   </div>
 </div>
 
-<?php
-
-
-include_once "includes/_footer.php"; 
-?>
+<?php include_once "includes/_footer.php"; ?>
