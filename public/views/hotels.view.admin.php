@@ -13,7 +13,7 @@ $reservations_results->execute();
 ?>
 <?php
 if($reservations_results->rowCount() < 1)
-    echo"<h1 style='color:red'>No reservations</h1>";
+    echo"<h1 style='color:red'>No reservations at this time.</h1>";
 else{
 ?>
 <body>
@@ -33,18 +33,23 @@ else{
     <tr>
     <td>".$reservation['reservation_id']."</td>
     <td>".$reservation['user_id']."</td>
-    <td>".$reservation['hotel_id']."</td>";
-    if($reservation['approved']==1)
-echo "<td> <div class='checkbox'>
-  <label><input type='checkbox' value='approved' checked>Approved</label>
-</div></td>
-</tr>
+    <td>".$reservation['hotel_id']."</td>
+    <td><form class='form-inline' action='../actions/approve.php' method='GET' >
+      <div class='checkbox'>
+      <label><input type='checkbox' value='approved'";  if($reservation['approved']==1) echo "checked";  echo">Approved</label>
+            </div>
+         &nbsp;<input type='submit' value='Save'>
+        </form>
+    </td>
+    </tr>
+    
+    
+    
     ";
-         else echo "<td> <div class='checkbox'>
-  <label><input type='checkbox' value='approved' >Approved</label>
-</div></td>
-</tr>
-    ";
+        
+   
+      
+         
              
 }
     ?>
