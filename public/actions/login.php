@@ -12,7 +12,7 @@ $admin = (bool)false;
             }
             else
                 //bring user to see available hotels
-                header('Location: /hotels/public/views/hotels.view.php');
+                header('Location: /hotels/public/views/hotels.view.php?user_id='.$user_id);
 
         }
         else{
@@ -24,8 +24,9 @@ $admin = (bool)false;
     //check if email and password entered exist and match
      function checkUser(){
          global $admin;
+         global $user_id;
            $pdo = Connection::connect();
-            $sql = "SELECT user_email, user_password FROM user WHERE user_email = '".$_POST['email']."';";
+            $sql = "SELECT user_id, user_email, user_password FROM user WHERE user_email = '".$_POST['email']."';";
             $users_result = $pdo->prepare($sql);
             $users_result->execute();
          
@@ -46,6 +47,7 @@ $admin = (bool)false;
                  elseif((password_verify($_POST['password'],$users['user_password'])) && ($_POST['email'] == $users['user_email'])){
                  //password and email match, accept entry
                     $admin = false;
+                    $user_id = $users['user_id'];
                     return true;
                 
                     exit;
