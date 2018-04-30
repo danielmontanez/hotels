@@ -29,6 +29,7 @@
     </div>
     <div class="form-group mt-4">
         <button type="submit" class="btn btn-primary float-right">Sign Up</button>
+        <a class="btn btn-secondary" href="../../index.php" role="button">Back</a>
     </div>
 </form>
 
