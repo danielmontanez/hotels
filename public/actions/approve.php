@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/core/services/reservationService.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/services/reservationService.php';
 
 $reservation_id = $_GET['id'];
 $approve = $_GET['approve'];

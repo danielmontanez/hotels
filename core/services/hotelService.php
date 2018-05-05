@@ -1,6 +1,6 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'].'/core/models/hotel.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/models/hotel.php';
 
 class HotelService {
 	

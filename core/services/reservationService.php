@@ -1,13 +1,13 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'].'/core/database/connection.php';
-require $_SERVER['DOCUMENT_ROOT'].'/core/models/reservation.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/database/connection.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/models/reservation.php';
 
 class ReservationService {
     
     public static function getReservationById($id) {
         $pdo = Connection::connect();
-        $sql = 'SELECT * FROM Reservation WHERE id = :id';
+        $sql = 'SELECT * FROM reservation WHERE id = :id';
         
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
@@ -18,7 +18,7 @@ class ReservationService {
     }
     public static function approve($id) {
         $pdo = Connection::connect();
-        $sql = 'UPDATE Reservation SET approved = 1 WHERE id = :id';
+        $sql = 'UPDATE reservation SET approved = 1 WHERE id = :id';
         
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
@@ -27,7 +27,7 @@ class ReservationService {
 
     public static function disapprove($id) {
         $pdo = Connection::connect();
-        $sql = 'UPDATE Reservation SET approved = 0 WHERE id = :id';
+        $sql = 'UPDATE reservation SET approved = 0 WHERE id = :id';
         
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);

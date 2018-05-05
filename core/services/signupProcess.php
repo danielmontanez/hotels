@@ -1,7 +1,7 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'].'/core/database/connection.php';
-require $_SERVER['DOCUMENT_ROOT'].'/core/models/user.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/database/connection.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/models/user.php';
 
 class SignUpProcess {
 
@@ -35,13 +35,13 @@ class SignUpProcess {
         
         
             $pdo = Connection::connect();
-            $sql = "SELECT user_email FROM user;";
+            $sql = "SELECT email FROM user;";
             $users_result = $pdo->prepare($sql);
             $users_result->execute();
             
             while($users = $users_result->fetch(PDO::FETCH_ASSOC)){
                 
-                if($users['user_email']==$this->email){
+                if($users['email']==$this->email){
                     return false;
                     exit;
                 }
@@ -56,7 +56,7 @@ class SignUpProcess {
 		try {
 			$pdo = Connection::connect();
 			$user = new User($this->name, $this->email, $this->password);
-			$sql = 'INSERT INTO USER (user_name, user_email, user_password) VALUES (:name, :email, :password)';
+			$sql = 'INSERT INTO USER (name, email, password) VALUES (:name, :email, :password)';
 
 			$stmt = $pdo->prepare($sql);
 			$stmt->bindParam(':name', $user->getName());

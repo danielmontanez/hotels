@@ -1,9 +1,9 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'].'/core/database/connection.php';
-require $_SERVER['DOCUMENT_ROOT'].'/core/models/reservation.php';
-require $_SERVER['DOCUMENT_ROOT'].'/core/services/userService.php';
-require $_SERVER['DOCUMENT_ROOT'].'/core/services/hotelService.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/database/connection.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/models/reservation.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/services/userService.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/services/hotelService.php';
 
 $pdo = Connection::connect();
 $sql = 'SELECT * FROM RESERVATION';
@@ -12,4 +12,4 @@ $stmt->execute();
 
 $reservations = $stmt->fetchAll();
 
-require $_SERVER['DOCUMENT_ROOT'].'/public/views/hotels.admin.view.php';
+require $_SERVER['DOCUMENT_ROOT'].'/hotels/public/views/hotels.admin.view.php';
