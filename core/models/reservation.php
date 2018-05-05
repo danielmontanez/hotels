@@ -2,20 +2,19 @@
 
 class Reservation {
 
-    private $reservation_id;
+    private $id;
     private $user_id;
     private $hotel_id;
     private $approved;
 
-    public function __construct($reservation_id, $user_id, $hotel_id) {
-        $this->reservation_id = $reservation_id;
+    public function __construct($user_id, $hotel_id, $approved) {
         $this->user_id = $user_id;
         $this->hotel_id= $hotel_id;
         $this->approved = $approved;
     }
     
-    public function getReservationId() {
-        return $this->reservation_id;
+    public function getId() {
+        return $this->id;
     }
 
     public function getUserId() {
@@ -31,7 +30,7 @@ class Reservation {
     }
 
     public function setUserId($user_id) {
-        $this->user_id = $user_id
+        $this->user_id = $user_id;
     }
 
     public function setHotelId($hotel_id) {

@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/database/connection.php';
+require $_SERVER['DOCUMENT_ROOT'].'/core/database/connection.php';
 
 $login_email = $_POST['email'];
 $login_password = $_POST['password'];
@@ -8,16 +8,16 @@ $admin = (bool)false;
         if(checkUser()){
             if($admin){
                 // if the user is the admin, redirect to admin view
-              header('Location: /hotels/public/views/hotels.view.admin.php');
+              header('Location: /public/views/hotels.view.admin.php');
             }
             else
                 //bring user to see available hotels
-                header('Location: /hotels/public/views/hotels.view.php');
+                header('Location: /public/views/hotels.view.php');
 
         }
         else{
             //bring user back to login page
-            header('Location: /hotels/public/views/login.view.php?error');
+            header('Location: /public/views/login.view.php?error');
         }
     
 

@@ -1,7 +1,7 @@
 <?php
 
 include_once "includes/_header.php"; 
-require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/database/connection.php';
+require $_SERVER['DOCUMENT_ROOT'].'/core/database/connection.php';
 
 $pdo = Connection::connect();
 $sql="SELECT * FROM hotel;";
@@ -31,7 +31,7 @@ while ($hotels=$hotels_results->fetch(PDO::FETCH_ASSOC)){
 echo"
     <div class='col-md-4'>
       <div class='thumbnail'>
-          <img src=".$hotel_image." alt=".hotel_name." style='width:100%'>
+          <img src='../assets/".$hotel_image."' alt='".hotel_name."' style='width:100%'>
           <h3>".$hotel_name."</h3>
           <div class='caption'>
             <p>".$hotel_desc."</p>
