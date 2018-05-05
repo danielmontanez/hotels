@@ -8,7 +8,7 @@ $admin = (bool)false;
         if(checkUser()){
             if($admin){
                 // if the user is the admin, redirect to admin view
-              header('Location: /public/views/hotels.view.admin.php');
+              header('Location: /public/actions/admin.php');
             }
             else
                 //bring user to see available hotels
