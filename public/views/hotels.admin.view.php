@@ -11,16 +11,20 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-		<?php foreach ($reservations as $reservation): ?>
+          
+		<?php foreach ($reservations as $reservation): 
+
+          ?>
 			<tr>
 		      <td><?= HotelService::getHotelById($reservation['hotel_id'])->getName() ?></td>
 		      <td><?= UserService::getUserById($reservation['user_id'])->getName() ?></td>
-		      <td><input id="<?= $reservation['id'] ?>" class="approveCheckbox" type="checkbox" <?= $reservation['approved'] ? 'checked' : '' ?>></td>
+		      <td><input id="<?= $reservation['id'] ?>" class="approveCheckbox" type="checkbox" <?= filter_var($reservation['approved'], FILTER_VALIDATE_BOOLEAN) ? 'checked' : '' ?>></td>
 		    </tr>
 		<?php endforeach; ?>
 	  </tbody>
 	</table>
-</form>
+
+<a class="btn btn-secondary" href="../../index.php" role="button">Home</a>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>

@@ -1,4 +1,5 @@
 <?php
+//approve reservations
 require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/services/reservationService.php';
 
 $reservation_id = $_GET['id'];

@@ -1,5 +1,5 @@
 <?php
-
+// used to approve or disapprove reservations in admin view
 require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/database/connection.php';
 require $_SERVER['DOCUMENT_ROOT'].'/hotels/core/models/reservation.php';
 
@@ -12,7 +12,7 @@ class ReservationService {
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
-        $reservation = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Reservation', [null, null, null, null]);
+        $reservation = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'reservation', [null, null, null, null]);
 
         return $reservation[0];
     }
